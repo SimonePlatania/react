@@ -1,0 +1,31 @@
+.text-align-center {
+  text-align: center;
+}
+
+.App-body {
+  background-color: #282c34;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.background-color-header {
+  background-color: #4f689a;
+}
+
+.background-color-nav {
+  background-color: #8a4042;
+}
+
+.background-color-footer {
+  background-color: #4f689a;
+}
+
+/* Stili customizzati */
+.padding-bottom-20 {
+  padding-bottom: 20px;
+}
