@@ -105,7 +105,7 @@ class Form extends Component {
                         type='button'
                         className="btn reset"
                         onClick={this.resetForm}>
-                        Reset form
+                        Cancella
                     </button>
                     
                     <button
