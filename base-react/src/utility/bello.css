@@ -35,7 +35,6 @@ body {
 
 /* Glassmorphic Container */
 
-
 .mio-div::before {
     content: '';
     position: absolute;
