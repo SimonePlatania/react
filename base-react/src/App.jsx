@@ -1,7 +1,10 @@
 
 import './App.css'
-import Form from './Form.jsx'
-import FormFunz from './FormFunz.jsx'
+// import ChangeColor from './components/ChangeColor'
+// import Form from './Form.jsx'
+// import FormFunz from './FormFunz.jsx'
+import Counter from './components/Counter'
+
 
 
 function App() {
@@ -9,7 +12,9 @@ function App() {
   return (
     <>
     {/* <Form/> */}
-    <FormFunz/>
+    {/* <FormFunz/> */}
+    {/* <ChangeColor/> */}
+    <Counter/>
       </>
   )
 }
