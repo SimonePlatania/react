@@ -7,10 +7,10 @@ function Card({ title, description, imgURL }) {
         <img 
           src={imgURL} 
           alt={title} 
-          className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+          className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
         />
         <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2">
-          <h2 className="text-xl font-bold">{title}</h2>
+          <h2 className="text-xl font-jetbrain">{title}</h2>
         </div>
       </div>
       <div className="p-4">
