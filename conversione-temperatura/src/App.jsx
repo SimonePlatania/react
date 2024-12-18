@@ -1,7 +1,6 @@
 import './App.css'
-import CalcolaEbollizione from './components/esercizio1/CalcolaEbolizzione'
-import Calcolatore from './components/esercizio2/Calcolatore'
-import Calcolatore2 from './components/esercizio3/Calcolatore2'
+// import CalcolaEbollizioneFunz from './components/esercizio1/CalcolaEbolizzioneFunz'
+import Calcolatore2Funz from './components/esercizio3/Calcolatore2Funz'
 
 function App() {
 
@@ -20,9 +19,10 @@ function App() {
 
         {/* 2) Esercizio conversione temperatura */}
         {/* <Calcolatore /> */}
-        <Calcolatore2 />
-
+        {/* <CalcolaEbollizioneFunz/> */}
+        <Calcolatore2Funz/>
       </body>
+
       <footer className="text-align-center">
         <h3>Developed by @Exolab</h3>
       </footer>

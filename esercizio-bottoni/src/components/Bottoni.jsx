@@ -1,61 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-class Bottoni extends React.Component {
-    constructor(props) {
-        super(props);
+function Bottoni() {
+  const [color, setColor] = useState("green");
+  const [intervalId, setIntervalId] = useState(null);
 
-        this.state = {
-            color: "green" 
-        };
-    }
+  // Funzione per cambiare il colore a blu
+  const changeColor = () => {
+    stopColorAlternation(); // Ferma il cambio alternato
+    setColor("blue"); // Imposta il colore a blu
+  };
 
-    changeColor = () => {
-        this.setState({ color: "blue" }); 
+  // Funzione per alternare il colore
+  const coloreAlternato = () => {
+    if (intervalId) {
+      stopColorAlternation(); // Se già in alternanza, ferma
+    } else {
+      const newIntervalId = setInterval(() => {
+        setColor((prevColor) => (prevColor === "orange" ? "white" : "orange"));
+      }, 1000); // Alterna i colori ogni secondo
+      setIntervalId(newIntervalId); // Salva l'ID dell'intervallo
     }
+  };
 
-    coloreAlternato = () => {
-        this.timer = setInterval(() => {
-         this.setState(prevState => ({
-             color: prevState.color === 'orange' ? 'white' : 'orange'
-         }));
-     }, 1000); 
- };
-     stopColorAlternation = () => {
-     clearInterval(this.timer);
-     };
-     
-    handleChangeColor = (newColor) => {
-        this.setState({
-            color: newColor
-        });
+  // Funzione per fermare il cambio alternato
+  const stopColorAlternation = () => {
+    if (intervalId) {
+      clearInterval(intervalId); // Pulisce l'intervallo
+      setIntervalId(null); // Resetta l'ID
     }
+  };
 
-    componentDidMount() {
-        this.timer = setTimeout(
-            () => this.handleChangeColor('red'), 1000 * 3
-        );
-    }
+  // Effetto per cambiare il colore in rosso dopo 3 secondi
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setColor("red");
+    }, 3000);
 
-    componentWillUnmount() {
-        clearTimeout(this.timer);
-        clearInterval(this.interval);
-    }
- 
-    render() {
-        return (
-            <div>
-                <h1 style={{ color: this.state.color}}>
-                    Etichetta colorata
-                </h1>
-                <button type="button" onClick={this.changeColor}>
-                    Cambia di blu
-                </button>
-                <button type="button" onClick={this.coloreAlternato}>
-                    Cambio alternato
-                </button>
-            </div>
-        );
-    }
+    return () => clearTimeout(timer); // Pulisce il timeout al termine
+  }, []);
+
+  // Ritorno del componente
+  return (
+    <div>
+      <h1 style={{ color }}>Etichetta colorata</h1>
+      <button type="button" onClick={changeColor} style={{ marginRight: "20px" }}>
+        Cambia di blu
+      </button>
+      <button type="button" onClick={coloreAlternato}>
+        Cambio alternato
+      </button>
+    </div>
+  );
 }
 
 export default Bottoni;
