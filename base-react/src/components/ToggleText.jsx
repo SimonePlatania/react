@@ -1,19 +1,20 @@
-import { useState } from "react";
+import React, { Component } from "react";
 
-function ToggleText  () {
+class ToggleText extends Component {
+  state = { isVisible: true };
 
-    const [isVisible, setIsVisible] = useState(true)
-
- const toggleVisibility = () => {
-    setIsVisible((prevIsVisible) => !isVisible );
+  toggleVisibility = () => {
+    this.setState({ isVisible: !this.state.isVisible });
   };
 
+  render() {
     return (
       <div>
-        <button onClick={toggleVisibility}>Toggle Text</button>
-        {isVisible && <p>Questo testo può essere nascosto.</p>}
+        <button onClick={this.toggleVisibility}>Toggle Text</button>
+        {this.state.isVisible && <p>Questo testo può essere nascosto.</p>}
       </div>
     );
   }
+}
 
 export default ToggleText;

@@ -1,25 +1,25 @@
-import { useState } from "react";
+import React, { Component } from "react";
 
-function InputField() {
-  const [text, setText] = useState("");
+class InputField extends Component {
+  state = { text: "" };
 
-  const handleChange = (e) => {
-    setText(e.target.value);
+  handleChange = (event) => {
+    this.setState({ text: event.target.value });
   };
 
-  return (
-    <div>
-      <input
-        type="text"
-        value={text}
-        onChange={handleChange}
-        placeholder="Scrivi qualcosa"
-      ></input>
-      <br></br>
-
-      <h1>{text}</h1>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <input
+          type="text"
+          value={this.state.text}
+          onChange={this.handleChange}
+          placeholder="Scrivi qualcosa"
+        />
+        <h3>{this.state.text}</h3>
+      </div>
+    );
+  }
 }
 
-export default InputField
+export default InputField;
